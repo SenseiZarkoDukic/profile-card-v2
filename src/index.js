@@ -30,7 +30,7 @@ const skills = [
   },
   {
     skill: "TypeScript",
-    level: "advanced",
+    level: "beginner",
     color: "orange",
   },
 ];
@@ -56,7 +56,13 @@ function SkillList() {
   return (
     <div className="skill-list">
       {skillList.map((skill) => (
-        <Skill skillObj={skill} key={skill} />
+        <Skill
+          skill={skill.skill}
+          level={skill.level}
+          color={skill.color}
+          emoji=""
+          key={skill.skill}
+        />
       ))}{" "}
       {/* <Skill skill="HTML + CSS" emoji="💪" background="blue" />
       <Skill skill="Web Design" emoji="💪" background="green" />
@@ -68,17 +74,21 @@ function SkillList() {
   );
 }
 
-function Skill({ skillObj }) {
+function Skill({ skill, level, color }) {
   const style = {
-    backgroundColor: skillObj.color,
+    backgroundColor: color,
   };
-  console.log(skillObj.color);
 
   return (
     <div className="skill" style={style}>
-      <span>{skillObj.skill}</span>
-      <span>{skillObj.level}</span>
+      <span>{skill}</span>
+      <span>
+        {level === "advanced" && "💪"}
+        {level === "intermediate" && "👍"}
+        {level === "beginner" && "👶"}
+      </span>
     </div>
+    // ^^ level = "intermediate" && "👍" ^^ level = "beginner" && "👶"}</span>
   );
 }
 
