@@ -52,7 +52,7 @@ function App() {
 
 function SkillList() {
   const skillList = skills;
-  console.log(skillList);
+
   return (
     <div className="skill-list">
       {skillList.map((skill) => (
@@ -60,7 +60,6 @@ function SkillList() {
           skill={skill.skill}
           level={skill.level}
           color={skill.color}
-          emoji=""
           key={skill.skill}
         />
       ))}{" "}
@@ -171,7 +170,7 @@ function Skill({ skill, level, color }) {
 // }
 
 function Avatar() {
-  return <img className="avatar" src="Zarko-Avatar.jpg" />;
+  return <img className="avatar" src="Zarko-Avatar.jpg" alt="Zarko Dukic" />;
 }
 
 function Intro() {
